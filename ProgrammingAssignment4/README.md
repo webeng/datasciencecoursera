@@ -2,7 +2,6 @@
 title: "README.md"
 author: "Joan Figuerola Hurtado"
 date: "20 August 2014"
-output: html_document
 ---
 
 # Getting and Cleaning Data: Course Project
@@ -20,5 +19,5 @@ This script contains all the steps that have been carried out to clean up the da
 ## File: "CodeBook.md"
 The Code book describes the variables, the data, and any transformations that have were carried out to clean up the data.
 
-## Folder: "data"
-The folder data contains the initial dataset "UCI HAR Dataset" and the final tidy dataset called "tidy.txt". The "UCI HAR Dataset" was downloaded from <https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip>
+## Folder: "UCI HAR Dataset"
+This folder contains the initial dataset called "UCI HAR Dataset" that was downloaded from <https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip>
