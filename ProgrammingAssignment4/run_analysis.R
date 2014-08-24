@@ -7,7 +7,7 @@ activity_labels <- read.table("./UCI HAR Dataset/activity_labels.txt",
                header = FALSE,
                strip.white=TRUE)
 
-#[STEP 4] Read names of the features
+#[STEP 4] Read names of the features - We perfrom step 4 here to save time.
 features <- read.table("./UCI HAR Dataset/features.txt", 
                        sep=" ", 
                        col.names=c('id',"name"), 
@@ -74,8 +74,6 @@ X_train <- cbind(X_train,y_train)
 #Append X_train to X_test and save it to a new var called data
 data <- rbind(X_test,X_train)
 
-#X_data_mean_std <- X_data[, grepl("mean[[:punct::]]*", colnames(X_data))]
-
 #[STEP 2] Filter Out Columns that doesn't contain mean or std. Note that meanFreq features are also included as they are means as well. 
 #We could filter out meanFreq by using the following regular expression "mean[[:punct::]]*|std[[:punct::]]*" in the grepl function
 data_filtered <- data[, grepl("mean.*|std.*", colnames(data))]
@@ -87,12 +85,7 @@ data_filtered$subject <- data$subject_id
 #[STEP 3] Merge our data_filtered with activity_labels using activity_label and id as a common key in order to get the descriptive activity names [STEP 3] 
 data_filtered <- merge(data_filtered,activity_labels, by.x = "activity_label" , by.y="id", all=TRUE)
 
-#data_filtered$activity_label <- as.factor(data_filtered$activity_label)
-#data_filtered$subject <- as.factor(data_filtered$subject)
-#data_filtered$name <- as.factor(data_filtered$name)
-
 #[STEP 5] Calculate the average of each variable for each activity and each subject and save it to a new variable called tidy
-#tidy <- aggregate(data_filtered, by=list(activity_label = data_filtered$activity_label, subject = data_filtered$subject), mean)
 tidy <- aggregate(data_filtered, by=list(name = data_filtered$name,activity_label = data_filtered$activity_label, subject = data_filtered$subject), mean)
 
 #Remove irrelevant fields such as: subject and activity_name. A mean of those has no use
@@ -100,4 +93,5 @@ tidy[,4] <- NULL
 tidy[,84] <- NULL
 tidy[,83] <- NULL
 
+#Create a new file called tidy.txt with the clean data
 write.table(tidy, file="./tidy.txt" , sep="\t", row.name=FALSE)
