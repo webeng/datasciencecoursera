@@ -70,8 +70,11 @@ Additional vectors obtained by averaging the signals in a signal window sample. 
 
 The complete list of variables of each feature vector is available in 'features.txt'
 
-**Note**: that we have filtered out values that were not necessary for this exercise. Read features_info.txt to get further information.
+**Note**: that we have filtered out values that were not necessary for this exercise. Read features_info.txt to get all the information about the features.
 
-The tidy.txt dataset is the result of applying run_analysis.R to the original data. The last script contains comments about all the transformations that were carried out.
+The tidy.txt dataset is the result of applying run_analysis.R to the original data. The last script contains comments about all the transformations that were carried out. I strongly recommend to read all the comments in each step to understand the script.
 
 The tidy.txt contains the average of each variable for each activity and each subject.
+
+### License - References
+[1] Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012

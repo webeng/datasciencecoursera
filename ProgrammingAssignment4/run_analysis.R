@@ -1,6 +1,6 @@
 # [STEP 1] Read all the necessary data into dataframes
 #Read Activity Labels
-activity_labels <- read.table("./data/UCI HAR Dataset/activity_labels.txt", 
+activity_labels <- read.table("./UCI HAR Dataset/activity_labels.txt", 
                sep=" ", 
                col.names=c('id',"name"), 
                fill = FALSE,
@@ -8,7 +8,7 @@ activity_labels <- read.table("./data/UCI HAR Dataset/activity_labels.txt",
                strip.white=TRUE)
 
 #[STEP 4] Read names of the features
-features <- read.table("./data/UCI HAR Dataset/features.txt", 
+features <- read.table("./UCI HAR Dataset/features.txt", 
                        sep=" ", 
                        col.names=c('id',"name"), 
                        fill = FALSE,
@@ -16,7 +16,7 @@ features <- read.table("./data/UCI HAR Dataset/features.txt",
                        strip.white=TRUE)
 
 #Read Test DATA - Subject Test
-subject_test <- read.table("./data/UCI HAR Dataset/test/subject_test.txt", 
+subject_test <- read.table("./UCI HAR Dataset/test/subject_test.txt", 
                        sep=" ", 
                        col.names=c('subject_id'), 
                        fill = FALSE,
@@ -24,7 +24,7 @@ subject_test <- read.table("./data/UCI HAR Dataset/test/subject_test.txt",
                        strip.white=TRUE)
 
 #Read Test DATA - X Test Samples. Note that use automatically asign column names to this dataframe. This completes [STEP 4]
-X_test <- read.table("./data/UCI HAR Dataset/test/X_test.txt", 
+X_test <- read.table("./UCI HAR Dataset/test/X_test.txt", 
                            sep="", 
                            col.names=features[,2], 
                            fill = FALSE,
@@ -32,7 +32,7 @@ X_test <- read.table("./data/UCI HAR Dataset/test/X_test.txt",
                            strip.white=TRUE)
 
 #Read Test Data - y_test
-y_test <- read.table("./data/UCI HAR Dataset/test/y_test.txt", 
+y_test <- read.table("./UCI HAR Dataset/test/y_test.txt", 
                           sep="", 
                           col.names=c('y_label'), 
                           fill = FALSE,
@@ -44,7 +44,7 @@ X_test <- cbind(X_test,subject_test)
 X_test <- cbind(X_test,y_test)
 
 #Read train data - Subject Train
-subject_train <- read.table("./data/UCI HAR Dataset/train/subject_train.txt", 
+subject_train <- read.table("./UCI HAR Dataset/train/subject_train.txt", 
                            sep=" ", 
                            col.names=c('subject_id'), 
                            fill = FALSE,
@@ -52,7 +52,7 @@ subject_train <- read.table("./data/UCI HAR Dataset/train/subject_train.txt",
                            strip.white=TRUE)
 
 #Read train data - X train. Note that we automatically add column names from features, thus it completes [STEP 4] 
-X_train <- read.table("./data/UCI HAR Dataset/train/X_train.txt", 
+X_train <- read.table("./UCI HAR Dataset/train/X_train.txt", 
                       sep="", 
                       col.names=features[,2], 
                       fill = FALSE,
@@ -100,4 +100,4 @@ tidy[,4] <- NULL
 tidy[,84] <- NULL
 tidy[,83] <- NULL
 
-write.table(tidy, file="./data/tidy.txt" , sep="\t", row.name=FALSE)
+write.table(tidy, file="./tidy.txt" , sep="\t", row.name=FALSE)
